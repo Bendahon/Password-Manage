@@ -21,7 +21,6 @@ namespace Password_Manager
         #region Loading encrypted file
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            //
             if (GetRowCount() >= 1)
             {
                 dgridActivePasswords.DataSource = null;
@@ -36,6 +35,7 @@ namespace Password_Manager
             catch(Exception ex)
             {
                 txtLogFile.Text = ex.ToString();
+                return;
             }
             // I dont think this does anything except waste some resources
             JumbleThePasswordBox();
@@ -336,6 +336,7 @@ namespace Password_Manager
             btnSeePassword.Enabled = chckViewPassword.Checked;
         }
         #endregion
+        #region Misc form stuff
         private void btnSeePassword_MouseEnter(object sender, EventArgs e)
         {
             txtPassword.UseSystemPasswordChar = false;
@@ -344,6 +345,7 @@ namespace Password_Manager
         {
             txtPassword.UseSystemPasswordChar = true;
         }
+        #endregion
         #region Themes
         private void LoadTheme()
         {
